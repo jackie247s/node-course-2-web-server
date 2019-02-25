@@ -5,6 +5,8 @@ const helpers = require('./helpers');
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 function registerHelpers(obj) {
 	Object.keys(obj).forEach(key => hbs.registerHelper(key, obj[key]));
 }
@@ -50,6 +52,6 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log('Server is up on port 3000');
+app.listen(port, () => {
+	console.log(`Server is up on port ${port}`);
 });
